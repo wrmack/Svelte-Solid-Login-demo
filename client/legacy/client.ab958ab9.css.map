@@ -1,10 +1,10 @@
 {
   "version": 3,
-  "file": "client.17c9584e.css",
+  "file": "client.ab958ab9.css",
   "sources": [
-    "../../../../../../src/components/Nav.svelte",
-    "../../../../../../src/routes/_layout.svelte",
-    "../../../../../../src/routes/_error.svelte"
+    "../../../../../../../src/components/Nav.svelte",
+    "../../../../../../../src/routes/_layout.svelte",
+    "../../../../../../../src/routes/_error.svelte"
   ],
   "sourcesContent": [
     "<script>\n\texport let segment;\n\timport {loggedIn} from '../Models/stores.js';\n\t\n\tlet loggedInState;\n\n\tconst unsubscribe = loggedIn.subscribe(value => {\n\tloggedInState = value;\n\t});\n\n</script>\n\n<style>\n\tnav {\n\t\tborder-bottom: 1px solid rgba(255,62,0,0.1);\n\t\tfont-weight: 300;\n\t\tpadding: 0 1em;\n\t\tbackground-color: rgba(255,255,255,1);\n\t\theight: 80px;\n\t}\n\n\tul {\n\t\tmargin: 0;\n\t\tpadding: 20px 0px 0px 20px;\n\t}\n\n\t/* clearfix */\n\tul::after {\n\t\tcontent: '';\n\t\tdisplay: block;\n\t\tclear: both;\n\t}\n\n\tli {\n\t\tdisplay: block;\n\t\tfloat: left;\n\t}\n\n\t.selected {\n\t\tposition: relative;\n\t\tdisplay: inline-block;\n\t}\n\n\t.selected::after {\n\t\tposition: absolute;\n\t\tcontent: '';\n\t\twidth: calc(100% - 1em);\n\t\theight: 2px;\n\t\tbackground-color: rgb(255,62,0);\n\t\tdisplay: block;\n\t\tbottom: -1px;\n\t}\n\n\t.hide {\n\t\tdisplay: none;\n\t}\n\n\ta {\n\t\ttext-decoration: none;\n\t\tpadding: 1em 0.5em;\n\t\tdisplay: block;\n\t}\n</style>\n\n<nav>\n\t<ul>\n\t\t<li><a class='{segment === undefined ? \"selected\" : \"\"}' href='.'>home</a></li>\n\t\t<li><a class='{(segment === \"login\") || (segment === \"register\") ? \"selected\" : \"\"} {loggedInState ? \"hide\" : \"\"}' href='login'>login</a></li>\n\t\t<li><a class='{segment === \"logout\" ? \"selected\" : \"\"} {loggedInState ? \"\" : \"hide\"}' href='logout'>logout</a></li>\n\t</ul>\n</nav>",
